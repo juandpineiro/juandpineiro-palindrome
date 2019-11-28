@@ -24,6 +24,21 @@ describe("Phrase", function() {
       let punctuatedPalindrome = new Phrase("Madam, I'm Adam.");
       assert(punctuatedPalindrome.palindrome());
     });
+
+    it("should return false for an empty string", function() {
+      let emptyString = new Phrase("");
+      assert(!emptyString.palindrome());
+    });
+
+    it("should return false for a pure whitespace string", function() {
+      let whitespaceString = new Phrase("  \t\n\r  ");
+      assert(!whitespaceString.palindrome());
+    });
+
+    it("should return false for a non-letter string", function() {
+      let nonLetterString = new Phrase("1234-?");
+      assert(!nonLetterString.palindrome());
+    });
   });
 
   describe('#letters', function() {
